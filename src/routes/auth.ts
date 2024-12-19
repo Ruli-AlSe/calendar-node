@@ -1,7 +1,9 @@
 import { Router, RequestHandler } from 'express';
-import { createUser, loginUser, revalidateToken } from '../controllers/auth';
 import { check } from 'express-validator';
+
+import { createUser, loginUser, revalidateToken } from '../controllers/auth';
 import { validateFields } from '../middlewares/validateFields';
+import { validateToken } from '../middlewares/validateToken';
 
 const router = Router();
 
@@ -31,6 +33,6 @@ router.post(
   loginUser as RequestHandler
 );
 
-router.get('/renew', revalidateToken);
+router.get('/renew', validateToken as RequestHandler, revalidateToken);
 
 export default router;
