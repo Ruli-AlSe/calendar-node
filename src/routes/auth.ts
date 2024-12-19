@@ -16,7 +16,7 @@ router.post(
     }),
     validateFields as RequestHandler,
   ],
-  createUser
+  createUser as RequestHandler
 );
 
 router.post(
@@ -28,7 +28,7 @@ router.post(
     }),
     validateFields as RequestHandler,
   ],
-  loginUser
+  loginUser as RequestHandler
 );
 
 router.get('/renew', revalidateToken);
