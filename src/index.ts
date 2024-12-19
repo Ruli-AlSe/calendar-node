@@ -2,9 +2,13 @@ import expresss from 'express';
 import 'dotenv/config';
 
 import authRoutes from './routes/auth';
+import { dbConnection } from './database/config';
 
 // * create express server
 const app = expresss();
+
+// * Database connection
+dbConnection();
 
 // * Public directory
 app.use(expresss.static('public'));
