@@ -3,6 +3,7 @@ import 'dotenv/config';
 import cors from 'cors';
 
 import authRoutes from './routes/auth';
+import eventRoutes from './routes/events';
 import { dbConnection } from './database/config';
 
 // * create express server
@@ -21,8 +22,8 @@ app.use(expresss.static('public'));
 app.use(expresss.json());
 
 // * create a routes
-// * auth routes
 app.use('/api/auth', authRoutes);
+app.use('/api/events', eventRoutes);
 
 // * start the server
 app.listen(process.env.PORT, () => {
