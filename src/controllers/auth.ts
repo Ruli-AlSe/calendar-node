@@ -95,5 +95,7 @@ export const revalidateToken = async (
   res.json({
     ok: true,
     token,
+    uid,
+    name,
   });
 };
