@@ -1,5 +1,6 @@
 import expresss from 'express';
 import 'dotenv/config';
+import cors from 'cors';
 
 import authRoutes from './routes/auth';
 import { dbConnection } from './database/config';
@@ -9,6 +10,9 @@ const app = expresss();
 
 // * Database connection
 dbConnection();
+
+// * CORS
+app.use(cors());
 
 // * Public directory
 app.use(expresss.static('public'));
